@@ -1,0 +1,38 @@
+extends layout
+
+block content
+ h1= title
+
+  if(toShow == null)
+    h2 No instance to detail
+  else
+    - let carid = toShow._id
+    - let car_manufacturer = toShow.manufacturer
+    - let model = toShow.model
+    - let carcost = toShow.cost
+    - let actionid = "/resource/car/" + carid
+    script let actionid = "#{actionid}"
+    div
+    div.row
+    div(class='carAttr mr-3') Car ID is: 
+      span(style="color:red") #{carid}
+    div.row
+    div(class='carAttr mr-3') Car manufacturer is: 
+      span(style="color:red") #{car_manufacturer}
+    div.row
+    div(class='carAttr mr-3') Car Quantity is: 
+      span(style="color:red") #{model}
+    div.row
+    div(class='carAttr mr-3') Car Cost is:
+      span(style="color:red") #{carcost}
+    button(class="btn btn-primary m-2" onclick="detailOnid()") Goback
+    button(class="btn btn-danger m-2" onclick="cancel()") Cancel
+
+  script.
+    function cancel() {
+    // Go back to the home page for the car collection
+    window.location.href='/car'
+    }
+    function detailOnid() {
+    window.location.href='/car'
+    }

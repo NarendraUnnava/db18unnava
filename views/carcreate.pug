@@ -2,28 +2,28 @@ extends layout
 
 block content
  h1= title
- form(id='GasForm', action="/resource/gas", method="POST")
+ form(id='CarForm', action="/resource/car", method="POST")
     div.form-group
     div(class="row g-3 align-items-center")
       div(class="col-1")
-         label.gasAttr(for='gas_type',class="col-form-label") Gas type
+         label.carAttr(for='car_type',class="col-form-label") Car manufacturer
       div(class="col-auto")
-         input#gas_type(type='text', name='gas_type',class="form-control")
+         input#car_manufacturer(type='text', name='car_type',class="form-control")
     div.form-group
     div(class="row g-3 align-items-center")
       div(class="col-1")
-         label.gasAttr(for='quantity', class="col-form-label") Gas quantity
+         label.carAttr(for='quantity', class="col-form-label") Car model
       div(class="col-auto")
-         input#quantity(type='number', name='quantity',class="form-control")
+         input#model(type='text', name='quantity',class="form-control")
     div.form-group
     div(class="row g-3 align-items-center")
       div(class="col-1")
-         label.gasAttr(for='cost',class="col-form-label") Gas cost
+         label.carAttr(for='cost',class="col-form-label") Car cost
       div(class="col-auto")
          input#cost(type='number', name='cost',class="form-control")
     input(type="submit",class="btn btn-primary")
  script.
-    document.forms['GasForm'].addEventListener('submit', (event) => {
+    document.forms['CarForm'].addEventListener('submit', (event) => {
     event.preventDefault();
     // TODO do something here to show user that form is being submitted
     fetch(event.target.action, {

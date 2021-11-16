@@ -4,7 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose');
-var Gas = require("./models/gas");
+var Car = require("./models/car");
 
 const connectionString = process.env.MONGO_CON
 mongoose = require('mongoose');
@@ -16,24 +16,24 @@ mongoose.connect(connectionString, {
 // server start
 async function recreateDB() {
   // Delete everything
-  await Gas.deleteMany();
+  await Car.deleteMany();
   let instance1 = new
-  Gas({
-    gas_type: "regular",
-    quantity: 12,
-    cost: 38.24
+  Car({
+    manufacturer: "Tesla",
+    model: "S",
+    cost: 60000
   });
   let instance2 = new
-  Gas({
-    gas_type: "plus",
-    quantity: 8,
-    cost: 29.67
+  Car({
+    manufacturer: "Audi",
+    model: "A4",
+    cost: 36000
   });
   let instance3 = new
-  Gas({
-    gas_type: "v-power",
-    quantity: 16,
-    cost: 64.09
+  Car({
+    manufacturer: "Toyota",
+    model: "C",
+    cost: 30000
   });  
   instance1.save(function (err, doc) {
     if (err) return console.error(err);
@@ -59,7 +59,7 @@ if (reseed) {
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var gasRouter = require('./routes/gas');
+var carRouter = require('./routes/car');
 var addmodsRouter = require('./routes/addmods');
 var selectorRouter = require('./routes/selector');
 var resourceRouter = require('./routes/resource');
@@ -80,7 +80,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/gas', gasRouter);
+app.use('/car', carRouter);
 app.use('/addmods', addmodsRouter);
 app.use('/selector', selectorRouter);
 app.use('/', resourceRouter);

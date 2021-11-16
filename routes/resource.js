@@ -2,19 +2,19 @@ var express = require('express');
 var router = express.Router();
 // Require controller modules.
 var api_controller = require('../controllers/api');
-var gas_controller = require('../controllers/gas');
+var car_controller = require('../controllers/car');
 /// API ROUTE ///
 // GET resources base.
 router.get('/resource', api_controller.api);
-/// gas ROUTES ///
-// POST request for creating a gas.
-router.post('/resource/gas', gas_controller.gas_create_post);
-// DELETE request to delete gas.
-router.delete('/resource/gas/:id', gas_controller.gas_delete);
-// PUT request to update gas.
-router.put('/resource/gas/:id', gas_controller.gas_update_put);
-// GET request for one gas.
-router.get('/resource/gas/:id', gas_controller.gas_detail);
-// GET request for list of all gas items.
-router.get('/resource/gas', gas_controller.gas_list);
+/// car ROUTES ///
+// POST request for creating a car.
+router.post('/resource/car', car_controller.car_create_post);
+// DELETE request to delete car.
+router.delete('/resource/car/:id', car_controller.car_delete);
+// PUT request to update car.
+router.put('/resource/car/:id', car_controller.car_update_put);
+// GET request for one car.
+router.get('/resource/car/:id', car_controller.car_detail);
+// GET request for list of all car items.
+router.get('/resource/car', car_controller.car_list);
 module.exports = router;

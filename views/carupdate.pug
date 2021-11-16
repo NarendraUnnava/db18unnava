@@ -6,40 +6,40 @@ block content
   if(toShow == null)
     h2 No instance to update
   else
-    - let gasid = toShow._id
-    - let gas_type = toShow.gas_type
-    - let gasquantity = toShow.quantity
-    - let gascost = toShow.cost
-    - let actionid = "/resource/gas/" + gasid
+    - let carid = toShow._id
+    - let car_manufacturer = toShow.manufacturer
+    - let model = toShow.model
+    - let carcost = toShow.cost
+    - let actionid = "/resource/car/" + carid
     script let actionid = "#{actionid}"
     div.row(class='mb-2')
     div.mr-1 ID is 
-      span(style="color:red")  #{gasid}
-    form(id='GasForm', action= actionid, method="PUT")
+      span(style="color:red")  #{carid}
+    form(id='CarForm', action= actionid, method="PUT")
       div.form-group
       div(class="row g-3 align-items-center")
         div(class="col-1")
-          label.gasAttr(for='gas_type',class="col-form-label") Gas type
+          label.carAttr(for='car_manufacturer',class="col-form-label") Car Manufacturer
         div(class="col-auto")
-          input#gas_type(type='text', name='gas_type',class="form-control", value=gas_type)
+          input#car_type(type='text', name='car_type',class="form-control", value=car_manufacturer)
       div.form-group
       div(class="row g-3 align-items-center")
         div(class="col-1")
-          label.gasAttr(for='quantity',class="col-form-label") Gas quantity
+          label.carAttr(for='model',class="col-form-label") Car model
         div(class="col-auto")
-          input#quantity(type='number', name='quantity',class="form-control", value=gasquantity)
+          input#model(type='text', name='quantity',class="form-control", value=model)
       div.form-group
       div(class="row g-3 align-items-center")
         div(class="col-1")
-          label.gasAttr(for='cost',class="col-form-label") Gas cost
+          label.carAttr(for='cost',class="col-form-label") Car cost
         div(class="col-auto")
-          input#cost(type='number', name='cost',class="form-control", value=gascost)
+          input#cost(type='number', name='cost',class="form-control", value=carcost)
       input(class="btn btn-danger m-2" type="submit")
         //- button(class="btn btn-danger m-2" onclick="deleteOnid()") Delete
       button(class="btn btn-secondary m-2" onclick="cancel()") Cancel
         
   script.
-    document.forms['GasForm'].addEventListener('submit', (event) => {
+    document.forms['CarForm'].addEventListener('submit', (event) => {
     event.preventDefault();
     // TODO do something here to show user that form is being submitted
     fetch(event.target.action, {
