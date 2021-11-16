@@ -1,0 +1,38 @@
+extends layout
+
+block content
+ h1= title
+
+  if(toShow == null)
+    h2 No instance to detail
+  else
+    - let gasid = toShow._id
+    - let gas_type = toShow.gas_type
+    - let gasquantity = toShow.quantity
+    - let gascost = toShow.cost
+    - let actionid = "/resource/gas/" + gasid
+    script let actionid = "#{actionid}"
+    div
+    div.row
+    div(class='gasAttr mr-3') Gas ID is: 
+      span(style="color:red") #{gasid}
+    div.row
+    div(class='gasAttr mr-3') Gas Type is: 
+      span(style="color:red") #{gas_type}
+    div.row
+    div(class='gasAttr mr-3') Gas Quantity is: 
+      span(style="color:red") #{gasquantity}
+    div.row
+    div(class='gasAttr mr-3') Gas Cost is:
+      span(style="color:red") #{gascost}
+    button(class="btn btn-primary m-2" onclick="detailOnid()") Goback
+    button(class="btn btn-danger m-2" onclick="cancel()") Cancel
+
+  script.
+    function cancel() {
+    // Go back to the home page for the gas collection
+    window.location.href='/gas'
+    }
+    function detailOnid() {
+    window.location.href='/gas'
+    }
