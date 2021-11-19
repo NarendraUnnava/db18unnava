@@ -1,11 +1,11 @@
-# db06manyam
+# db06unnava
 
 Webapps Assignment-11
 
-[Hosted At](https://db06manyam.herokuapp.com/)
+[Hosted At](https://db18unnava.herokuapp.com/)
 
-Class Gas
+Class car
 
-gas_type(string)
-quantity(number)
+manufacturer(string)
+model(String)
 cost(number)
