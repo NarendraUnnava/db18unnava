@@ -2,26 +2,30 @@ extends layout
 
 block content
   h1= title
-  - let cars = results; 
-  table(class="table table-stripped table-bordered")
-        thead(style="background-color:yellow; color:red;font-size:20px;font-family:calibri;") 
-            tr
-                td car ID
-                td car manufacturer 
-                td car model
-                td car cost 
-                td Update
-        tbody 
-            each car in cars
-                - let destination = `dispatch(\"/car/update?id=${car._id}\")`
-                tr
-                    td #{car._id}
-                    td #{car.manufacturer}
-                    td #{car.model}
-                    td #{car.cost}
-                    td
-                      button.btn( class="btn-primary ml-1", onclick= destination) Update
-                script.
-                    function dispatch(path){
-                      window.location.href=path
-                    }
+  //- - let items = ['car_type','quantity','cost']
+  - let items = results;
+  - let o;
+  script.
+    function buy(x){
+      alert('purchased item ' + x)
+   } 
+  div(class='container-fluid')
+    a(class="btn btn-primary" href="/car/create") Create
+    div(class='row m-1')
+    div(class="row row-cols-1 row-cols-sm-4 g-6")
+      each item,index in items
+        - let destination = `dispatch(\"/car/update?id=${item._id}\")`
+        - let details = `dispatch(\"/car/detail?id=${item._id}\")` 
+      
+        div(class="card text-white bg-dark mb-3" class='col' class='card' class='card-body' class='card-text' onclick='buy('+index+')') Item #{item.manufacturer}(#{item.model})is #{item.cost} 
+          <br><br>
+          span(class="btn btn-info", onclick= details) Details
+          <br>
+          a(class="btn btn-danger", href="/car/delete/?id="+item._id) Delete
+          <br>
+          button.btn( class="btn-success ml-1", onclick= destination) Update
+
+  script.
+    function dispatch(path){
+      window.location.href=path
+    }

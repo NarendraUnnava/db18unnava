@@ -1,5 +1,5 @@
 {
-  "name": "db06manyam",
+  "name": "db18vunnava",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -9,21 +9,24 @@
     "cookie-parser": "~1.4.4",
     "debug": "^4.3.2",
     "express": "^4.17.1",
+    "express-session": "^1.17.2",
     "heroku": "^7.59.1",
     "http-errors": "^1.8.0",
+    "local": "^0.3.3",
     "mongodb": "^4.1.4",
     "mongoose": "^6.0.12",
     "morgan": "^1.10.0",
     "passport": "^0.5.0",
-    "passport-ldapauth": "^3.0.1",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^6.1.0",
     "pug": "^3.0.2"
   },
-  "description": "webapps-f21-assignment-11-manyamsrk",
+  "description": "webapps-f21-assignment-11-unnava",
   "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "db06manyam"
+    "url": "db18unnava"
   },
-  "author": "Siva Rama Krishna Manyam",
+  "author": "Narendra Unnava",
   "license": "ISC"
 }
